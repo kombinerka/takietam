@@ -1,0 +1,21 @@
+De volgende waardes zijn aan te sturen op de webpagina. Het eerste deel van de waard is het object id en de tweede is de part. In het geval van zuil_alarm is het 
+dus aan te sturen met ws_server->que_message(zuil,alarm,[nieuwe waarde (is int)]). het opvragen van waardes gebeurt in het geval van bv de zuil met ws_server->get_new_php_command("zuil");
+dit geeft een pointer naar een object_data struct (zie object_data.hpp). Vergeet niet nadat je klaar bent hiermee deze weer te vernietigen (delete).
+
+ACTUATOREN id/part___________________________________________________
+zuil alarm
+lamp lamp
+deur deur
+stoel triller
+bed lamp
+koelkast koeler
+raam raam
+
+SENSOREN id/part______________________________________________________
+lamp sensor
+deur lamp
+stoel druksensor
+bed druksensor
+koelkast opensensor
+rookmelder alarm
+muur lamp

@@ -1,85 +1,475 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  box-sizing: border-box;
-}
-.menu {
-  float:left;
-  width:20%;
-  text-align:center;
-}
-.menu a {
-  background-color:#e5e5e5;
-  padding:8px;
-  margin-top:7px;
-  display:block;
-  width:100%;
-  color:black;
-}
-.main {
-  float:left;
-  width:60%;
-  padding:0 20px;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style type="text/css">
+
+        body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
 
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .menu, .main{
-    width:100%;
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
   }
 }
 
-</style>
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+.logs {
+    float: right;
+    width: 30%;
+    text-align: right;
+     
+}
+
+.logs a {
+    position: relative;
+    background-color: #e5e5e5;
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: black;
+
+
+}
+
+.main {
+    float: left;
+    width: 70%;
+    padding: 0 20px;
+    overflow:hidden;
+}
+
+
+
+
+.logsupdate {
+  float: right;
+  height: 400px;
+  position: relative;
+  overflow: auto;
+}
+
+.logsupdate a {
+    position: relative;
+    background-color: #e5e5e5;
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: black;
+
+
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+/*button*/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+  content: attr(data-on);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*rgb lampje slider*/
+
+.rgb {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.rgb:hover {
+  opacity: 1;
+}
+
+.rgb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.rgb::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+
+    </style>
+
+
+
+    <body style="font-family: Verdana; color: #aaaaaa;">
+
+        <div style="background-color: #e5e5e5; padding: 15px; text-align: center;">
+            <h1>Welkom "Bewaker"!</h1>
+        </div>
+
+        <div class="topnav" id="myTopnav">
+            <a href="../index.html" class="active">Home</a>
+            <a href="../index_guest.html">Bewoner</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
 </head>
-<body style="font-family:Verdana;color:#aaaaaa;">
 
-<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
-  <h1>Welkom "Gebruiker"!</h1>
-</div>
 
-<div style="overflow:auto">
-  <div class="menu">
-    <a href="../index.html">Home</a>
-    <a href="/pages/vraag.html">Uitleg</a>
-    <a href="/pages/contact.html">Contact</a>
-    
+
+<body>
+
+    <div style="overflow: auto">
+        <div class="logs">
+            <a>Logs</a>
+            <div class="logsupdate">
+                <div id="result"></div>
+            </div>
+            <div class="logsupdate"><div id="piechart"></div></div>
+        </div>
+
+
+
+
+
+        <div class="main">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>
+                            Lamp
+                            imgs/lamp.png
+                        </th>
+                        <th>Deur</th>
+                        <th>Stoel</th>
+                        <th>Bed</th>
+                        <th>Koelkast</th>
+                        <th>Zuil</th>
+                        <th>Muur</th>
+                    </tr>
+                    <tr>
+                        <td>Status: Lamp</td>
+                        <td>Status: Deur</td>
+                        <td>Status: trilfunctie</td>
+                        <td>Status: bedlamp </td>
+                        <td>Status: Koelkast</td>
+                        <td>Status: Alarm</td>
+                        <td>Status: Raam:</td>
+                    </tr>
+                    <tr>
+                        <td id="lamp_lamp_status"> lamp lamp Aan/Uit</td>
+                        <td id="deur_deur_status"> -deur aan/uit</td>
+                        <td id="stoel_triller_status">stoel t s</td>
+                        <td id="bed_lamp_status"> bed l s</td>
+                        <td id="koelkast_koeler_status">kkast koeler s</td>
+                        <td id="zuil_alarm_status"> zuil alarm s</td>
+                        <td id="raam_raam_status"> raam raam s</b></td>
+                    </tr>
+                    <tr>
+                        <td>Bediening: Lamp</td>
+                        <td>Bediening: Deur</td>
+                        <td>Bediening: trilfunctie</td>
+                        <td>Bediening: bedlamp </td>
+                        <td>Bediening: Koelkast</td>
+                        <td>Bediening: Alarm</td>
+                        <td>Bediening: Blindering</td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <label class="switch">  <input id="lamp_lamp_checkbox" type="checkbox" >  <div class="slider round"></div></label>
+                            <p id="text" style="display:none">CHECKED!</p>
+                        </td>
+                        <td>
+                            <label class="switch">  <input id="deur_deur_checkbox" type="checkbox" >  <div class="slider round"></div></label>
+                            <p id="text" style="display:none">CHECKED!</p>
+                        </td>
+                        <td>
+                            <label class="switch">  <input id="stoel_triller_checkbox" type="checkbox">  <div class="slider round"></div></label>
+                            <p id="text" style="display:none">CHECKED!</p>
+                        </td>
+                        <td>
+                            <label class="switch">  <input id="bed_lamp_checkbox" type="checkbox">  <div class="slider round"></div></label>
+                            <p id="text" style="display:none">CHECKED!</p>
+                        </td>
+                        <td>
+                            <label class="switch">  <input id="koelkast_koeler_checkbox" type="checkbox">  <div class="slider round"></div></label>
+                            <p id="text" style="display:none">CHECKED!</p>
+                        </td>
+                        <td>
+                            <label class="switch">  <input id="zuil_alarm_checkbox" type="checkbox" >  <div class="slider round"></div></label>
+                            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Zet Alarm Aan</button></label>
+                            <p id="text" style="display:none">CHECKED!</p>
+                        </td>
+                        <td>
+                            <label class="switch">  <input id="raam_raam_checkbox" type="checkbox" >  <div class="slider round"></div></label>
+                            <p id="text" style="display:none">CHECKED!</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Status: Bewegings-sensor lamp</td>
+                        <td>Status: Deur-Lamp</td>
+                        <td>Status: Stoel_bezet</td>
+                        <td>Status: Bed_bezet </td>
+                        <td>Status: Koelkast_Open</td>
+                        <td>Status: Rookmelder</td>
+                        <td>Status: MuurLamp</td>
+                    </tr>
+                    <tr>
+                        <td id="lamp_sensor_status"><b>Aan/Uit</b></td>
+                        <td id="deur_lamp_status"><b>Aan/Uit</b></td>
+                        <td id="stoel_druksensor_status"><b>Bool</b></td>
+                        <td id="bed_druksensor_status"><b>Bool</b></td>
+                        <td id="koelkast_opensensor_status"><b>Bool</b></td>
+                        <td id="rookmelder_alarm_status"><b>waarde</b></td>
+                        <td id="muur_lamp_status"><b>Uit/aan</b>
+                            <div class="slidecontainer"><input type="range" min="1" max="100" value="50" class="rgb" id="myRange">
+  <p>Value: <span id="demo"></span></p>
+</div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+    <div style="background-color: #e5e5e5; text-align: center; padding: 10px; margin-top: 7px;">© copyright PJSDV: WNGON</div>
+
+
+
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-red"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>LET OP</h2>
+      </header>
+      <div class="w3-container">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. .</p>
+        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui</p>
+      </div>
+      <footer class="w3-container w3-red">
+        <p>Alarm gaat nu Aan</p>
+      </footer>
+    </div>
   </div>
-
-  <div class="main">
-    <h3>Klik op een van de onderstaande knoppen om uw Appartment te bedienen</h>
-    <p></p>
-    <body>
-<div style="overflow-x:auto;">
-<table border="0" align="center">
-  <tbody>
-    <tr>
-      <td id = "lamp"><a href="#"><img src="/imgs/lamp.png" style="max-width:100%;height:auto;"></a></td>
-      <td id="raam"><a href="#"><img src="/imgs/raam.png"" style="max-width:100%;height:auto;"></a></td>
-      
-    </tr>
-    <tr>
-      <td id="deur"><a href="#"><img src="/imgs/deur.png" style="max-width:100%;height:auto;"></a></td>
-      <td id="alarm">   <a href="#"><img src="/imgs/vuur.png" style="max-width:100%;height:auto;"></a></td>
-    </tr>
-  </tbody>
-</table>
-
 </div>
 
-    
-    <p>Door te klikken op een van de afgebeelde apparaten kunt u de stand daarvan veranderen.</p>
-
-  </div>
-</div>
-
-
-
-
-<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright PJSDV: WNGON</div>
 
 </body>
+
+<script src="client_ws.js"></script>
+
 </html>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+
+    // Load google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Stoel', 8],
+            ['Koelkast', 2],
+            ['Bed', 4],
+            ['Deur', 2],
+            ['Lamp', 8]
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'Drukte Chart - Peter', 'width': 500, 'height': 380 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+<script>
+    if (typeof (EventSource) !== "undefined") {
+        var source = new EventSource("demo_sse.php");
+        source.onmessage = function (event) {
+            document.getElementById("result").innerHTML += event.data + "<br>";
+        };
+
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+    }
+
+</script>
+
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
+<script>
+/*
+    function mybtnFunction() {
+        var checkBox = document.getElementById("1");
+        var text = document.getElementById("text");
+        if (checkBox.checked === true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }*/
+</script>
+
+
+
