@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -250,7 +251,8 @@ input:checked + .slider:before {
 
     <div style="overflow: auto">
         <div class="logs">
-            <a>Logs</a>
+            
+             <a href="#" onclick="popupCenter('test.php')">Open Logs</a>
             <div class="logsupdate">
                 <div id="result"></div>
             </div>
@@ -287,12 +289,12 @@ input:checked + .slider:before {
                     </tr>
                     <tr>
                         <td id="lamp_lamp_status"> lamp lamp Aan/Uit</td>
-                        <td id="deur_deur_status"> -deur aan/uit</td>
-                        <td id="stoel_triller_status">stoel t s</td>
-                        <td id="bed_lamp_status"> bed l s</td>
+                        <td id="deur_deur_status"> deur deur/uit</td>
+                        <td id="stoel_triller_status">stoel triller s</td>
+                        <td id="bed_lamp_status"> bed lamp s</td>
                         <td id="koelkast_koeler_status">kkast koeler s</td>
                         <td id="zuil_alarm_status"> zuil alarm s</td>
-                        <td id="raam_raam_status"> raam raam s</b></td>
+                        <td id="muur_raam_status"> muur raam s</b></td>
                     </tr>
                     <tr>
                         <td>Bediening: Lamp</td>
@@ -379,7 +381,7 @@ input:checked + .slider:before {
       </header>
       <div class="w3-container">
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. .</p>
-        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui</p>
+       <a href="#" onclick="popupCenter('test.php')">logs</a>
       </div>
       <footer class="w3-container w3-red">
         <p>Alarm gaat nu Aan</p>
@@ -472,4 +474,10 @@ slider.oninput = function() {
 </script>
 
 
-
+<script>
+function popupCenter(pageURL, title, w, h) {
+    var left = (screen.width / 2)  - (w / 2);
+    var top  = (screen.height / 2) - (h / 2);
+    var targetWin = window.open(pageURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+}
+</script>

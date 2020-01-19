@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 * {
@@ -24,13 +26,115 @@
   width:60%;
   padding:0 20px;
 }
+#lamp_lamp_checkbox {
+  display: none;
+}
+.LampCheck {
+    display:inline-block;
+    background:url("imgs/bulb_off.png") no-repeat;
+    height: 250px;
+    width: 250px;;
+    background-size: 50%;
+    
+}
+#lamp_lamp_checkbox:checked + .LampCheck {
+    background:url("imgs/bulb_on.png") no-repeat;
+    height: 250px;
+    width: 250px;
+    display:inline-block;
+    background-size: 50%;
+}
 
+
+#muur_raam_checkbox {
+  display: none;
+}
+.RaamCheck {
+    display:inline-block;
+    background:url("imgs/window_off.png") no-repeat;
+    height: 250px;
+    width: 250px;;
+    background-size: 50%;
+}
+#muur_raam_checkbox:checked + .RaamCheck {
+    background:url("imgs/window_on.png") no-repeat;
+    height: 250px;
+    width: 250px;
+    display:inline-block;
+    background-size: 50%;
+}
+
+
+#zuil_alarm_checkbox {
+  display: none;
+}
+.AlarmCheck {
+    display:inline-block;
+    background:url("imgs/alarm_off.png") no-repeat;
+    height: 250px;
+    width: 250px;;
+    background-size: 50%;
+}
+#zuil_alarm_checkbox:checked + .AlarmCheck {
+    background:url("imgs/alarm_on.png") no-repeat;
+    height: 250px;
+    width: 250px;
+    display:inline-block;
+    background-size: 50%;
+}
+
+
+
+
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 45%;
+    left: 90%;
+}
 
 @media only screen and (max-width:620px) {
   /* For mobile phones: */
   .menu, .main{
     width:100%;
   }
+
+body {
+    background-color:#f0f0f0;
+ }
+#keyboard {
+    display:inline-block;
+    padding:10px 15px;
+    border:1px solid #009;
+    border-radius:10px;
+    background-color:#87cdf9;
+    text-align:center;
+    box-shadow:1px 1px 1px #999;
+ }
+#keyboard div {
+    margin:5px 0;
+ }
+#space {
+    width:184px;
+ }
+#keyboard label {
+    margin-top:20px;
+    font-family:serif;
+    text-decoration:underline;
+ }
+#keyboard input {
+   
+ }
+#keyboard input[type="text"] {
+    margin-top:20px;
+    border:1px solid #666;
+    border-radius:4px;
+    box-shadow:none;
+ }
 }
 
 </style>
@@ -47,6 +151,7 @@
     <a href="/pages/vraag.html">Uitleg</a>
     <a href="/pages/contact.html">Contact</a>
     <a href="../index.html">Bewaker</a>
+
     
   </div>
 
@@ -57,30 +162,133 @@
 <div style="overflow-x:auto;">
 <table border="0" align="center">
   <tbody>
-    <tr>
-      <td id = "lamp"><a href="#"><img src="/imgs/lamp.png" style="max-width:100%;height:auto;"></a></td>
-      <td id="raam"><a href="#"><img src="/imgs/raam.png"" style="max-width:100%;height:auto;"></a></td>
-      
-    </tr>
-    <tr>
-      <td id="deur"><a href="#"><img src="/imgs/deur.png" style="max-width:100%;height:auto;"></a></td>
-      <td id="alarm">   <a href="#"><img src="/imgs/vuur.png" style="max-width:100%;height:auto;"></a></td>
-    </tr>
+   <tr>
+                        <td>
+                           <input id="lamp_lamp_checkbox" type="checkbox" > 
+                          <label for="lamp_lamp_checkbox" class="LampCheck"></label>
+                        </td>                     
+                        
+                        <td>
+                         <input id="muur_raam_checkbox" type="checkbox" > 
+                          <label for="muur_raam_checkbox" class="RaamCheck"></label>
+                        
+                        </td>
+                        
+                        <td>
+                         <input id="zuil_alarm_checkbox" type="checkbox" > 
+                          <label for="zuil_alarm_checkbox" class="AlarmCheck"></label>
+
+                        </td>
+                    </tr>
+
   </tbody>
 </table>
 
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-red"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Voer deur code in</h2>
+      </header>
+      <div class="w3-container">
+       
+        
+<div id="keyboard">
+
+<div>
+ <input type="button" value="1" style="height:50px;width:50px">
+ <input type="button" value="2" style="height:50px;width:50px">
+ <input type="button" value="3" style="height:50px;width:50px">
+</div><div>
+ <input type="button" value="4" style="height:50px;width:50px">
+ <input type="button" value="5" style="height:50px;width:50px">
+ <input type="button" value="6" style="height:50px;width:50px">
+</div><div>
+ <input type="button" value="7" style="height:50px;width:50px">
+ <input type="button" value="8" style="height:50px;width:50px">
+ <input type="button" value="9" style="height:50px;width:50px">
+</div><div>
+ <input type="button" value="0" style="height:50px;width:50px">
+<input id="clear" type="reset" value="Clear" style="height:50px;width:100px">
+</div><div>
+ <!--<input id="space" type="button" value=" ">-->
+ 
+</div><div>
+<input id="deur_deurcode_text"  type="text" readonly="readonly" style="height:25px;width:80px">
+<button class="deur_deurcode" id="deur_deurcode_btn"
+        type="button" style="height:50px;width:90px">
+    Submit
+</button>
+
 </div>
 
-    
-    <p>Door te klikken op een van de afgebeelde apparaten kunt u de stand daarvan veranderen.</p>
+</div><!-- end #keyboard -->
 
+      </div>
+      <footer class="w3-container w3-blue">
+        <p>Klik op "Submit" om code in te voeren</p>
+      </footer>
+    </div>
+  </div>
+
+
+</div>
+
+
+    <p>Door te klikken op een van de afgebeelde apparaten kunt u de stand daarvan veranderen.</p>
+     
   </div>
 </div>
 
 
 
 
+
+<button onclick="document.getElementById('id01').style.display='block'" class="button">Deur</button>
+
 <div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright PJSDV: WNGON</div>
+
+<script src="client_ws_bewoner.js"></script>
+
+<script>
+
+(function(){
+
+   'use strict';
+   var i,c;
+function init(){ 
+    i=document.getElementById('keyboard').getElementsByTagName('input');
+  for(c=0;c<i.length;c++) {
+    if(i[c].type==='button') {
+        i[c].addEventListener('onclick',makeClickHandler(c));
+      }
+    }
+  document.getElementById('clear').onclick=function() 
+  {
+      document.getElementById('deur_deurcode_text').value='';
+  
+  };
+  document.getElementById('deur_deurcode_btn').onclick=function() {   
+    let msg = 'deur_deurcode_' +  document.getElementById('deur_deurcode_text').value;        
+    connection.send("deur_deurcode_"+document.getElementById('deur_deurcode_text').value);
+      document.getElementById('deur_deurcode_text').value='';
+    console.log("deurcode gestuurd");     
+  };
+}
+
+function makeClickHandler(c) {
+    i[c].onclick=function() {
+      document.getElementById('deur_deurcode_text').value+=this.value.toLowerCase();
+    };
+ }
+
+   window.addEventListener?
+   window.addEventListener('load',init,false):
+   window.attachEvent('onload',init);
+})();
+</script>
 
 </body>
 </html>
+
